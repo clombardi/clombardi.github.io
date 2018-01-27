@@ -1,0 +1,171 @@
+<html>
+	<head>
+		<title>HTML y CSS - microresumen</title>
+    <style>
+      .code {
+        font-family: Lucida Console;
+        font-size: smaller;
+        color: #004de6;
+      }
+      li {
+        margin-bottom: 30px
+      }
+      li.inner {
+        margin-bottom: 5px
+      }
+      h2 {
+        font-family: Arial;
+        color: #cc0000;
+      }
+    </style>
+	</head>
+
+
+	<body>
+    <h2>Tags, anidamiento, estructura de una página HTML</h2>
+    <ul>
+      <li>
+        <p>Una página HTML está formada por <b>tags</b>. Cada tag tiene un <i>identificador</i> (o nombre).</p>
+        <p>P.ej. para marcar un título del nivel más alto se usa el tag <span class="code">h1</span></p>
+      </li>
+      <li>
+        <p>Hay que <u>abrir</u> y <u>cerrar</u> cada tag.</p>
+        <p>Para abrir un tag, se pone el identificador entre corchetes triangulares, p.ej. </p>
+        <div class="code">
+          &lt;h1&gt;
+        </div>
+        <p>Para cerrar un tag, lo mismo, anteponiendo una barra al identificador del tag. P.ej. </p>
+        <div class="code">
+          &lt;/h1&gt;
+        </div>
+      </li>
+
+      <li>
+        <p>Entre la apertura y el cierre del tag, se pone el <b>contenido</b>, que puede ser </p>
+        <ul>
+          <li class="inner">texto que se escribe derecho viejo, este texto va a formar parte de la página</li>
+          <li class="inner">uno o varios tags, en el caso de tags anidados</li>
+          <li class="inner">una mezcla</li>
+        </ul>
+        <p>P.ej. este código HTML especifica un título de nivel principal</p>
+        <div class="code">
+          &lt;h1&gt;Estructura general de una célula&lt;/h1&gt;
+        </div>
+        <p><u>No</u> es necesario que vaya todo en una misma línea, ni que no haya espacios entre tag y contenido.
+        Lo anterior es equivalente a</p>
+        <div class="code">
+          <p>&lt;h1&gt;</p>
+          <p>&nbsp;&nbsp;Estructura general de una célula</p>
+          <p>&lt;/h1&gt;</p>
+        </div>
+        <p>y también a</p>
+        <div class="code">
+          &lt;h1&gt;&nbsp;Estructura general de una célula&nbsp;&lt;/h1&gt;
+        </div>
+      </li>
+
+      <li>
+        <p>Los tags están <i>anidados</i>. En este ejemplo</p>
+        <div class="code">
+          <p>&lt;body&gt;</p>
+          <p>&nbsp;&nbsp;&lt;h1&gt;Este es el título&lt;/h1&gt;</p>
+          <p>&lt;/body&gt;</p>
+        </div>
+        <p>el tag <span class="code">h1</span> se está usando anidado dentro del tag <span class="code">body</span> .
+      </li>
+
+      <li>
+        <p>La estructura de cualquier página HTML es</p>
+        <div class="code">
+          <p>&lt;html&gt;</p>
+          <p>&nbsp;&nbsp;&lt;head&gt;</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family:initial;font-size: initial;">... acá van indicaciones generales para la página ...</span></p>
+          <p>&nbsp;&nbsp;&lt;/head&gt;</p>
+          <p>&nbsp;&nbsp;&lt;body&gt;</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family:initial;font-size: initial;">... acá va el contenido de la página ...</span></p>
+          <p>&nbsp;&nbsp;&lt;/body&gt;</p>
+          <p>&lt;/html&gt;</p>
+        </div>
+      </li>
+      <li>
+        <p>El catálogo de todos los tags que se pueden usar en una página HTML está en
+          <a href="https://www.w3schools.com/tags/default.asp">https://www.w3schools.com/tags/default.asp</a> .</p>
+        <p>Los que son solamente para HTML5 no sé si conviene usarlos, tal vez no anden en máquinas viejas.</p>
+    </ul>
+
+    <h2>Atributos, estilos, CSS</h2>
+    <ul>
+      <li>
+        <p>Todo tag dentro de una página puede (o no) tener <b>atributos</b>.
+        Cada atributo tiene un <i>identificador</i> (o nombre), y un <i>valor</i>. </p>
+        <p>P.ej. en el tag <span class="code">img</span> , que sirve para insertar una imagen en la página, el archivo con la imagen se especifica en el atributo <span class="code">src</span>. P.ej. </p>
+        <div class="code">
+          &lt;img src=&quot;images/kokito-beach.jpeg&quot;&gt;&lt;/img&gt;
+        </div>
+        <p>Acá al tag <span class="code">img</span> se le está poniendo un atributo, con identificador <span class="code">src</span> y valor <span class="code">images/kokito-beach.jpeg</span>. Por lo general, el valor de los atributos se pone entre comillas dobles.</p>
+        <p>Dicho de otra forma, al tag <span class="code">img</span> le pusimos <span class="code">images/kokito-beach.jpeg</span> como valor del atributo <span class="code">src</span>.</p>
+      </li>
+
+      <li>
+        <p>De paso, lo anterior es equivalente a</p>
+        <div class="code">
+          &lt;img src=&quot;images/kokito-beach.jpeg&quot;/&gt;
+        </div>
+        <p>O sea: si un tag no tiene contenido, entonces se puede abrir y cerrar de una.</p>
+      </li>
+      
+      <li>
+        <p>Algunos atributos tienen sentido solamente para un tag, o un conjunto reducido de tags. 
+          P.ej. el atributo <span class="code">src</span> se usa solamente en el tag <span class="code">img</span> (entre los tags que yo conozco, puede ser que se use en algún otro tag).
+        </p>
+        <p>Otros atributos son universales, o sea, tienen sentido en cualquier tag. El ejemplo más importante es <span class="code">style</span>.</p>
+      </li>
+      
+      <li>
+        <p>Con el atributo <span class="code">style</span> se le pueden dar un montón de indicaciones de estilo a un tag HTML. </p>
+        <p>P.ej. para poner un título en rojo se pone</p>
+        <div class="code">
+          &lt;h1 style=&quot;color: red;&quot;&gt;Estructura general de una célula&lt;/h1&gt;
+        </div>
+        <p>
+          En el <i>valor</i> del atributo <span class="code">style</span> se indica una o varias <b>propiedades</b>. Cada propiedad tiene un nombre y un valor. En el ejemplo de recién, al tag <span class="code">h1</span> le ponemos un estilo que tiene una sola propiedad, de nombre <span class="code">color</span> y valor <span class="code">red</span>. Cada propiedad se termina con un punto y coma. 
+        </p>
+      </li>
+      
+      <li>
+        <p>Un ejemplo con dos propiedades. Para poner un título en color rojo y fuente Arial, ponemos</p>
+        <div class="code">
+          &lt;h1 style=&quot;color: red; font-family: Arial&quot;&gt;Estructura general de una célula&lt;/h1&gt;
+        </div>
+        <p>
+          Acá las propiedades son <span class="code">color</span> y <span class="code">font-family</span>, con valores <span class="code">red</span> y <span class="code">Arial</span> respectivamente.
+        </p>
+      </li>
+      
+      <li>
+        <p>El lenguaje <b>CSS</b> especifica todas las propiedades que podemos poner dentro de un <span class="code">style</span></p>
+        <p>Hay un catálogo de propiedades en 
+          <a href="https://www.w3schools.com/cssref/default.asp">https://www.w3schools.com/cssref/default.asp</a> .</p>
+      </li>
+    </ul>
+
+    <h2>El tag <span class="code" style="color: #cc0000">span</span></h2>
+    <p>
+      ¿Qué pasa si queremos que una mitad de un renglón aparezca en rojo y la otra en verde.? O sea, que aparezca algo así
+    </p>
+    <div style="border-width: 2px;border-color: blue;border-style: solid;width: 20%">
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">Hola amigos</span><span style="color: green"> y compañeros</span>
+    </div>
+    <p>Los estilos solamente pueden usarse en un tag. Entonces, este renglón va a necesitar dos tags, uno para la parte roja, otro para la verde. </p>
+    <p>
+      Para estos casos se inventó el tag <span class="code" style="color: #cc0000">span</span>. Este tag no hace nada, solamente sirve para poder marcar un estilo a una parte del texto. 
+    </p>
+    <p> Lo de arriba se resuelve así: </p>
+    <div class="code">
+      <p>&lt;p&gt;</p>
+      <p>&nbsp;&nbsp;&lt;span style=&quot;color=red&quot;&gt;Hola amigos &lt;/span&gt;</p>
+      <p>&nbsp;&nbsp;&lt;span style=&quot;color=green&quot;&gt;y compañeros&lt;/span&gt;</p>
+      <p>&lt;/p&gt;</p>
+    </div>
+	</body>
+</html>
